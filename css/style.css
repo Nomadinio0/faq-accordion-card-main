@@ -19,7 +19,7 @@ body {
   font-size: 12px;
   font-family: "Kumbh Sans", sans-serif;
   color: hsl(237, 12%, 33%);
-  background: linear-gradient(rgb(175, 103, 233) 50%, hsl(240, 73%, 65%) 100%);
+  background: linear-gradient(rgb(175, 103, 233) 0%, hsl(240, 73%, 65%) 100%);
 }
 
 .container {
@@ -33,6 +33,9 @@ body {
   padding: 50px 25px 50px 25px;
   border-radius: 25px;
   background: white;
+}
+.container .iconDesktop {
+  display: none;
 }
 .container .icon {
   display: flex;
@@ -49,9 +52,12 @@ body {
 }
 .container .iconShadow {
   position: absolute;
-  top: 50px;
+  top: 40px;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.container .faq .iconDesktop-box {
+  display: none;
 }
 .container .faq h1 {
   padding: 15px 0px;
@@ -70,13 +76,13 @@ body {
   align-items: center;
 }
 .container .faq .question_title svg {
-  transition: transform 0.3s ease-in;
+  transition: transform 0.3s ease;
 }
 .container .faq .question_answer {
   max-height: 0;
   overflow: hidden;
   color: hsl(240, 6%, 50%);
-  transition: max-height 1s ease;
+  transition: max-height 0.5s ease-in-out;
 }
 .container .faq .question_answer p {
   padding-top: 15px;
@@ -85,8 +91,80 @@ body {
   font-weight: bold;
 }
 .container .faq .active .question_answer {
-  max-height: 100px;
+  max-height: 60px;
 }
 .container .faq .active svg {
   transform: rotate(180deg);
+}
+
+@media (min-width: 1000px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 400px;
+    width: 800px;
+    margin: auto;
+    padding: 0;
+    border-radius: 25px;
+    background: white;
+    transition: transform 1s ease;
+  }
+  .container .icon {
+    display: none;
+  }
+  .container .iconDesktop {
+    display: block;
+    width: 400px;
+  }
+  .container .iconDesktop-hidden {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  .container .iconDesktop-hidden .iconDesktop-woman {
+    position: absolute;
+    left: 30%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: 10;
+  }
+  .container .iconDesktop-hidden .iconDesktop-bg {
+    position: absolute;
+    left: -15%;
+    top: 35%;
+    transform: translate(-50%, -50%);
+    height: 700px;
+    z-index: 1;
+  }
+  .container .iconDesktop-box {
+    position: absolute;
+    left: 0;
+    top: 59%;
+    width: 140px;
+    transform: translate(-50%, -50%);
+    overflow: visible;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+  }
+  .container .iconDesktop .pressed {
+    transform: translate(-70%, -50%);
+  }
+  .container .faq {
+    margin: 40px 20px;
+    padding: 0 20px;
+    width: 400px;
+  }
+  .container .faq h1 {
+    padding: 0 0 15px 0;
+    font-size: 24px;
+    text-align: left;
+  }
+  .container .faq .question:active {
+    color: hsl(14, 88%, 65%);
+  }
+  .pressed {
+    transform: translateX(-20px);
+  }
 }/*# sourceMappingURL=style.css.map */
